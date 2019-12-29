@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048112AA23B94610001292D2 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048112A923B94610001292D2 /* ItemsController.swift */; };
+		048112AC23B94636001292D2 /* MovesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048112AB23B94636001292D2 /* MovesController.swift */; };
 		049579F023B9417400B77860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049579EF23B9417400B77860 /* AppDelegate.swift */; };
 		049579F223B9417400B77860 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049579F123B9417400B77860 /* SceneDelegate.swift */; };
-		049579F423B9417400B77860 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049579F323B9417400B77860 /* ViewController.swift */; };
-		049579F723B9417400B77860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049579F523B9417400B77860 /* Main.storyboard */; };
 		049579F923B9417500B77860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049579F823B9417500B77860 /* Assets.xcassets */; };
 		049579FC23B9417500B77860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049579FA23B9417500B77860 /* LaunchScreen.storyboard */; };
+		04957A0723B9421A00B77860 /* PokemonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957A0623B9421A00B77860 /* PokemonController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		049579EC23B9417400B77860 /* Pokedex Reloaded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokedex Reloaded.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		048112A923B94610001292D2 /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
+		048112AB23B94636001292D2 /* MovesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesController.swift; sourceTree = "<group>"; };
+		049579EC23B9417400B77860 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049579EF23B9417400B77860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049579F123B9417400B77860 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		049579F323B9417400B77860 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		049579F623B9417400B77860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049579F823B9417500B77860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049579FB23B9417500B77860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		049579FD23B9417500B77860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04957A0623B9421A00B77860 /* PokemonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,7 @@
 		049579ED23B9417400B77860 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				049579EC23B9417400B77860 /* Pokedex Reloaded.app */,
+				049579EC23B9417400B77860 /* Pokedex.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +58,56 @@
 		049579EE23B9417400B77860 /* Pokedex Reloaded */ = {
 			isa = PBXGroup;
 			children = (
-				049579EF23B9417400B77860 /* AppDelegate.swift */,
-				049579F123B9417400B77860 /* SceneDelegate.swift */,
-				049579F323B9417400B77860 /* ViewController.swift */,
-				049579F523B9417400B77860 /* Main.storyboard */,
+				04957A0923B9428200B77860 /* Extenstions */,
+				04957A0823B9422100B77860 /* Constants */,
+				04957A0523B9419D00B77860 /* Custom Components */,
+				04957A0323B9417E00B77860 /* Singletons */,
+				04957A0423B9419300B77860 /* Controllers */,
 				049579F823B9417500B77860 /* Assets.xcassets */,
 				049579FA23B9417500B77860 /* LaunchScreen.storyboard */,
 				049579FD23B9417500B77860 /* Info.plist */,
 			);
 			path = "Pokedex Reloaded";
+			sourceTree = "<group>";
+		};
+		04957A0323B9417E00B77860 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				049579EF23B9417400B77860 /* AppDelegate.swift */,
+				049579F123B9417400B77860 /* SceneDelegate.swift */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		04957A0423B9419300B77860 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04957A0623B9421A00B77860 /* PokemonController.swift */,
+				048112A923B94610001292D2 /* ItemsController.swift */,
+				048112AB23B94636001292D2 /* MovesController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04957A0523B9419D00B77860 /* Custom Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Components";
+			sourceTree = "<group>";
+		};
+		04957A0823B9422100B77860 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		04957A0923B9428200B77860 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extenstions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +127,7 @@
 			);
 			name = "Pokedex Reloaded";
 			productName = "Pokedex Reloaded";
-			productReference = 049579EC23B9417400B77860 /* Pokedex Reloaded.app */;
+			productReference = 049579EC23B9417400B77860 /* Pokedex.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +170,6 @@
 			files = (
 				049579FC23B9417500B77860 /* LaunchScreen.storyboard in Resources */,
 				049579F923B9417500B77860 /* Assets.xcassets in Resources */,
-				049579F723B9417400B77860 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +180,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049579F423B9417400B77860 /* ViewController.swift in Sources */,
 				049579F023B9417400B77860 /* AppDelegate.swift in Sources */,
 				049579F223B9417400B77860 /* SceneDelegate.swift in Sources */,
+				048112AA23B94610001292D2 /* ItemsController.swift in Sources */,
+				04957A0723B9421A00B77860 /* PokemonController.swift in Sources */,
+				048112AC23B94636001292D2 /* MovesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		049579F523B9417400B77860 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				049579F623B9417400B77860 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		049579FA23B9417500B77860 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,14 +323,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 848C2FNJZC;
 				INFOPLIST_FILE = "Pokedex Reloaded/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deontecodes.Pokedex-Reloaded";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pokedex;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,14 +342,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 848C2FNJZC;
 				INFOPLIST_FILE = "Pokedex Reloaded/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deontecodes.Pokedex-Reloaded";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pokedex;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

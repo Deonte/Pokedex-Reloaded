@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokemonController.swift
 //  Pokedex Reloaded
 //
 //  Created by Deonte on 12/29/19.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+        view.backgroundColor = .systemGreen
+    }
+    
 
 }
-
