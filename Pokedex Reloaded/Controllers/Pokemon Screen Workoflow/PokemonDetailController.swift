@@ -13,6 +13,7 @@ class PokemonDetailController: UIViewController {
     var detailURL: String?
     let spriteImageView = PRSpriteImageView(frame: .zero)
     
+    
     init(detailURL: String) {
         super.init(nibName: nil, bundle: nil)
         self.detailURL = detailURL
@@ -26,7 +27,7 @@ class PokemonDetailController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPokemonDetail(for: detailURL ?? "")
+        getPokemonDetail(for: detailURL!)
     }
     
     
@@ -35,6 +36,23 @@ class PokemonDetailController: UIViewController {
         configure()
         addSubviews()
         layoutUI()
+    }
+    
+    
+    private func getPokemonDetail(for url: String) {
+        NetworkManager.shared.getPokemonDetail(for: url) { [weak self] detail, errorMessage in
+            guard let self = self else { return }
+            guard let detail = detail else {
+                print(errorMessage!)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                print(detail)
+                self.spriteImageView.downloadImage(from: detail.sprites.front_default)
+            }
+            
+        }
     }
     
     
@@ -58,22 +76,5 @@ class PokemonDetailController: UIViewController {
             spriteImageView.widthAnchor.constraint(equalToConstant: 300),
         ])
     }
-    
-    
-    private func getPokemonDetail(for url: String) {
-        NetworkManager.shared.getPokemonDetail(for: url) { (detail, errorMessage) in
-            guard let detail = detail else {
-                print(errorMessage!)
-                return
-            }
-            
-            DispatchQueue.main.async {
-                print(detail)
-                self.spriteImageView.downloadImage(from: detail.sprites.front_default)
-            }
-            
-        }
-    }
-    
     
 }

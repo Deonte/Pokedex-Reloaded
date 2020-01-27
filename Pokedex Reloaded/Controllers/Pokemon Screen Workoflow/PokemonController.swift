@@ -10,15 +10,12 @@ import UIKit
 
 class PokemonController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
     
-    
     let searchController = UISearchController(searchResultsController: nil)
-    
     var pokemon = [Pokemon]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureSearchController()
         configureTableView()
         getPokemon()
@@ -56,17 +53,14 @@ class PokemonController: UITableViewController, UISearchBarDelegate, UISearchRes
         let detailController = PokemonDetailController(detailURL: pokemon.url)
         
         present(detailController, animated: true)
-
+        
     }
     
     
     func getPokemon() {
-        NetworkManager.shared.getPokemon { [weak self] (pokemon, errorMessage) in
+        NetworkManager.shared.getPokemon { [weak self] pokemon, errorMessage in
             guard let self = self else { return }
-            guard let pokemon = pokemon else {
-                print(errorMessage!)
-                return
-            }
+            guard let pokemon = pokemon else { return }
             self.pokemon = pokemon
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -81,12 +75,10 @@ class PokemonController: UITableViewController, UISearchBarDelegate, UISearchRes
     
     
     private func configureSearchController() {
-          navigationItem.searchController = searchController
-          navigationItem.hidesSearchBarWhenScrolling = false
-          searchController.obscuresBackgroundDuringPresentation = false
-          searchController.searchBar.placeholder = "Search Pokemon"
-          searchController.searchResultsUpdater = self
-      }
-    
-    
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Pokemon"
+        searchController.searchResultsUpdater = self
+    }
 }

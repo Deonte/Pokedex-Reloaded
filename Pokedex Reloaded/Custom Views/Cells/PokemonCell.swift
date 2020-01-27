@@ -35,7 +35,8 @@ class PokemonCell: UITableViewCell {
     
     
     private func getPokemonDetail(for url: String) {
-        NetworkManager.shared.getPokemonDetail(for: url) { (detail, errorMessage) in
+        NetworkManager.shared.getPokemonDetail(for: url) { [weak self] detail, errorMessage in
+            guard let self = self else { return }
             guard let detail = detail else {
                 print(errorMessage!)
                 return

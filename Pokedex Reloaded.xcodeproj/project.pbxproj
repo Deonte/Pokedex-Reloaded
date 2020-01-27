@@ -140,21 +140,21 @@
 				048112AD23B989D5001292D2 /* Model */,
 				0461FCBF23DEA23700E0AEEA /* Custom Views */,
 				04957A0423B9419300B77860 /* Controllers */,
-				04957A0323B9417E00B77860 /* Singletons */,
-				049579F823B9417500B77860 /* Assets.xcassets */,
-				049579FA23B9417500B77860 /* LaunchScreen.storyboard */,
-				049579FD23B9417500B77860 /* Info.plist */,
+				04957A0323B9417E00B77860 /* Supporting */,
 			);
 			path = "Pokedex Reloaded";
 			sourceTree = "<group>";
 		};
-		04957A0323B9417E00B77860 /* Singletons */ = {
+		04957A0323B9417E00B77860 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				049579F823B9417500B77860 /* Assets.xcassets */,
+				049579FA23B9417500B77860 /* LaunchScreen.storyboard */,
+				049579FD23B9417500B77860 /* Info.plist */,
 				049579EF23B9417400B77860 /* AppDelegate.swift */,
 				049579F123B9417400B77860 /* SceneDelegate.swift */,
 			);
-			path = Singletons;
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		04957A0423B9419300B77860 /* Controllers */ = {
@@ -414,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 848C2FNJZC;
-				INFOPLIST_FILE = "Pokedex Reloaded/Info.plist";
+				INFOPLIST_FILE = "Pokedex Reloaded/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -433,7 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 848C2FNJZC;
-				INFOPLIST_FILE = "Pokedex Reloaded/Info.plist";
+				INFOPLIST_FILE = "Pokedex Reloaded/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

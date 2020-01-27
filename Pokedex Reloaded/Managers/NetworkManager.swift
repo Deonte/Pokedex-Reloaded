@@ -13,7 +13,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     let cache = NSCache<NSString, UIImage>()
 
-    let baseURL = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150"
+    let baseURL = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151"
     let baseDetailURl = "https://pokeapi.co/api/v2/pokemon/"
     
     private init() {}
