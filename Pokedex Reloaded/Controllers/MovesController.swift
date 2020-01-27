@@ -8,23 +8,31 @@
 
 import UIKit
 
-class MovesController: UIViewController {
+class MovesController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating{
+   
+    let searchController = UISearchController(searchResultsController: nil)
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .systemBackground
+        configureSearchController()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func configureSearchController() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Moves"
+        searchController.searchResultsUpdater = self
     }
-    */
-
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    
 }

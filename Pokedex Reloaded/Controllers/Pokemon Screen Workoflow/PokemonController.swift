@@ -52,7 +52,11 @@ class PokemonController: UITableViewController, UISearchBarDelegate, UISearchRes
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
+        let pokemon = self.pokemon[indexPath.row]
+        let detailController = PokemonDetailController(detailURL: pokemon.url)
+        
+        present(detailController, animated: true)
+
     }
     
     
