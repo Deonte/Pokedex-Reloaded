@@ -16,11 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = createTabbar()
         window?.makeKeyAndVisible()
+    }
+    
+    
+    func configureNavStyle() {
+        let navApperance = UINavigationBar.appearance()
+        navApperance.prefersLargeTitles = true
+        navApperance.tintColor = .label
     }
     
     
@@ -54,6 +60,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createTabbar() -> UITabBarController {
         let tabBar = UITabBarController()
         UITabBar.appearance().tintColor = .label
+        UITabBar.appearance().isOpaque = false
+        configureNavStyle()
         tabBar.viewControllers = [createPokemonNC(), createMovesController(), createItemsNC()]
         
         return tabBar
