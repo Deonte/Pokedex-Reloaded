@@ -14,11 +14,34 @@ struct PokemonDetail: Codable {
     var types: [PokeTypes]
     var sprites: Sprites
     var species: Species
+    var weight: Int
 }
 
 
 struct Species: Codable {
     var url: String
+}
+
+
+struct FlavorTextEntries: Codable {
+    var flavorTextEntries: [FlavorText]
+}
+
+
+struct FlavorText: Codable {
+    var language: Language
+    var flavorText: String
+    var version: Version
+}
+
+
+struct Version: Codable {
+    let name: String
+}
+
+
+struct Language: Codable {
+    let name: String
 }
 
 
@@ -36,7 +59,6 @@ struct PokeTypes: Codable {
 
 struct Type: Codable {
     var name: String
-    var url: String
 }
 
 

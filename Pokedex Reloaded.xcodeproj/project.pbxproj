@@ -10,6 +10,7 @@
 		04252AC323FDB0B800BA9B18 /* UISearchController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04252AC223FDB0B800BA9B18 /* UISearchController+ext.swift */; };
 		04252AC623FDB4E700BA9B18 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04252AC523FDB4E700BA9B18 /* Constants.swift */; };
 		04252AC823FDB5FF00BA9B18 /* PRControllerWithSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04252AC723FDB5FF00BA9B18 /* PRControllerWithSearch.swift */; };
+		04252ACE23FDE6F500BA9B18 /* PRTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04252ACD23FDE6F500BA9B18 /* PRTextView.swift */; };
 		0461FCC223DEA2A700E0AEEA /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461FCC123DEA2A700E0AEEA /* PokemonCell.swift */; };
 		0461FCC523DEA38900E0AEEA /* PRSpriteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461FCC423DEA38900E0AEEA /* PRSpriteImageView.swift */; };
 		0461FCC723DEAD6900E0AEEA /* PRTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0461FCC623DEAD6900E0AEEA /* PRTitleLabel.swift */; };
@@ -35,6 +36,7 @@
 		04252AC223FDB0B800BA9B18 /* UISearchController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+ext.swift"; sourceTree = "<group>"; };
 		04252AC523FDB4E700BA9B18 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04252AC723FDB5FF00BA9B18 /* PRControllerWithSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRControllerWithSearch.swift; sourceTree = "<group>"; };
+		04252ACD23FDE6F500BA9B18 /* PRTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRTextView.swift; sourceTree = "<group>"; };
 		0461FCC123DEA2A700E0AEEA /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		0461FCC423DEA38900E0AEEA /* PRSpriteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRSpriteImageView.swift; sourceTree = "<group>"; };
 		0461FCC623DEAD6900E0AEEA /* PRTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRTitleLabel.swift; sourceTree = "<group>"; };
@@ -108,9 +110,18 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		04252ACC23FDE6CC00BA9B18 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				04252ACD23FDE6F500BA9B18 /* PRTextView.swift */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
 		0461FCBF23DEA23700E0AEEA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				04252ACC23FDE6CC00BA9B18 /* TextView */,
 				04252AC423FDB4A900BA9B18 /* View Controller */,
 				0461FCC323DEA36600E0AEEA /* ImageViews */,
 				0461FCC023DEA26500E0AEEA /* Cells */,
@@ -322,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0461FCCC23DEAFE900E0AEEA /* PRTypeImageView.swift in Sources */,
+				04252ACE23FDE6F500BA9B18 /* PRTextView.swift in Sources */,
 				049579F023B9417400B77860 /* AppDelegate.swift in Sources */,
 				049579F223B9417400B77860 /* SceneDelegate.swift in Sources */,
 				0461FCC923DEAD7F00E0AEEA /* PRSubtitleLabel.swift in Sources */,

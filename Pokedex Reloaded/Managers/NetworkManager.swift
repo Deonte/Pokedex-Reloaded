@@ -85,8 +85,46 @@ class NetworkManager {
                 }
                 
             }
+        
+        task.resume()
+    }
+    
+    
+    func getFlavorText(from url: String , completion: @escaping([FlavorText]? , PRError?) -> Void) {
+        let endpoint = url
+        
+        guard let url = URL(string: endpoint) else {
+            completion(nil, .invalidURL)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             
-            task.resume()
+            if let _ = error {
+                completion(nil, .unableToComplete)
+            }
+            
+            guard let data = data else {
+                completion(nil, .invalidData)
+                return
+            }
+                        
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                let entries = try decoder.decode(FlavorTextEntries.self, from: data)
+                let flavorTextArray = entries.flavorTextEntries
+                
+                completion(flavorTextArray, nil)
+                
+            } catch {
+                completion(nil, .invalidData)
+            }
+            
+        }
+        
+        task.resume()
     }
     
     
