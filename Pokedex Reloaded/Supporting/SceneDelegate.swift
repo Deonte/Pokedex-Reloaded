@@ -31,27 +31,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func createPokemonNC() -> UINavigationController {
-        let pokemonController = PokemonController()
-        pokemonController.title = "Pokemon"
-        pokemonController.tabBarItem = UITabBarItem(title: "Pokemon", image: #imageLiteral(resourceName: "pokemon-tabBar-active"), tag: 0)
-        
+        let pokemonController = PokemonController(title: "Pokemon", tabBarImage: Images.pokemon, tag: 0)
+    
         return UINavigationController(rootViewController: pokemonController)
     }
     
     
     func createMovesController() -> UINavigationController {
-        let movesController = MovesController()
-        movesController.title = "Moves"
-        movesController.tabBarItem = UITabBarItem(title: "Moves", image: #imageLiteral(resourceName: "moves-tabBar-active"), tag: 1)
+        let movesController = MovesController(title: "Moves", tabBarImage: Images.moves, tag: 1)
         
         return UINavigationController(rootViewController: movesController)
     }
     
     
     func createItemsNC() -> UINavigationController {
-        let itemsController = ItemsController()
-        itemsController.title = "Items"
-        itemsController.tabBarItem = UITabBarItem(title: "Items", image: #imageLiteral(resourceName: "items-tabBar-active"), tag: 2)
+        let itemsController = ItemsController(title: "Items", tabBarImage: Images.items, tag: 2)
         
         return UINavigationController(rootViewController: itemsController)
     }

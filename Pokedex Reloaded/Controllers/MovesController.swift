@@ -8,31 +8,13 @@
 
 import UIKit
 
-class MovesController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating{
+class MovesController: PRControllerWithSearch {
    
-    let searchController = UISearchController(searchResultsController: nil)
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         configureSearchController()
     }
-    
-    
-    private func configureSearchController() {
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Moves"
-        searchController.searchResultsUpdater = self
-    }
-    
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
-    
-    
+ 
 }

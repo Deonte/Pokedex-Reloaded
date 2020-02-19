@@ -8,19 +8,21 @@
 
 import UIKit
 
-
 class NetworkManager {
+    
     static let shared = NetworkManager()
     let cache = NSCache<NSString, UIImage>()
 
-    let baseURL = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151"
+    let baseURL = "https://pokeapi.co/api/v2/"
+    let query = "?offset=0&limit=151"
+    
     let baseDetailURl = "https://pokeapi.co/api/v2/pokemon/"
     
     private init() {}
     
     
-    func getPokemon(completion: @escaping([Pokemon]?, PRError?) -> Void) {
-        let endpoint = baseURL
+    func getData(from parameter: String, completion: @escaping([DataURL]?, PRError?) -> Void) {
+        let endpoint = baseURL + parameter  + query
         
         guard let url = URL(string: endpoint) else {
             completion(nil, .invalidURL)
@@ -40,9 +42,9 @@ class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let pokemon = try decoder.decode(PokemonResponse.self, from: data)
-                let pokemonArray = pokemon.results
-                completion(pokemonArray, nil)
+                let dataResponse = try decoder.decode(Response.self, from: data)
+                let urls = dataResponse.results
+                completion(urls, nil)
     
             } catch {
                 completion(nil, .invalidData)
@@ -54,7 +56,7 @@ class NetworkManager {
     }
     
     
-    func getPokemonDetail(for pokemonDetailURL: String , completion: @escaping(PokemonDetail?, PRError?) -> Void) {
+    func getPokemonDetail(from pokemonDetailURL: String , completion: @escaping(PokemonDetail?, PRError?) -> Void) {
         let endpoint = pokemonDetailURL
             
             guard let url = URL(string: endpoint) else {
@@ -88,4 +90,35 @@ class NetworkManager {
     }
     
     
+    func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
+          let cacheKey = NSString(string: urlString)
+          
+          if let image = cache.object(forKey: cacheKey) {
+              completed(image)
+              return
+          }
+          
+          guard let url = URL(string: urlString) else {
+              completed(nil)
+              return
+          }
+          
+          let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+              
+              guard let self = self,
+              error == nil,
+              let response = response as? HTTPURLResponse, response.statusCode == 200,
+              let data = data,
+              let image = UIImage(data:  data) else {
+                  completed(nil)
+                  return
+              }
+              
+              self.cache.setObject(image, forKey: cacheKey)
+              completed(image)
+          }
+          
+          task.resume()
+      }
+   
 }

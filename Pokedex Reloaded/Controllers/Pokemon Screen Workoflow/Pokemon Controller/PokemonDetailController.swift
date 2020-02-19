@@ -10,13 +10,14 @@ import UIKit
 
 class PokemonDetailController: UIViewController {
     
-    var detailURL: String?
+    //var detailURL: String?
     let spriteImageView = PRSpriteImageView(frame: .zero)
     
     
-    init(detailURL: String) {
+    init(detail: PokemonDetail) {
         super.init(nibName: nil, bundle: nil)
-        self.detailURL = detailURL
+        //self.detailURL = detailURL
+        print(detail)
     }
     
     
@@ -27,7 +28,7 @@ class PokemonDetailController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPokemonDetail(for: detailURL!)
+        //getPokemonDetail(for: detailURL!)
     }
     
     
@@ -39,21 +40,21 @@ class PokemonDetailController: UIViewController {
     }
     
     
-    private func getPokemonDetail(for url: String) {
-        NetworkManager.shared.getPokemonDetail(for: url) { [weak self] detail, errorMessage in
-            guard let self = self else { return }
-            guard let detail = detail else {
-                print(errorMessage!)
-                return
-            }
-            
-            DispatchQueue.main.async {
-                print(detail)
-                self.spriteImageView.downloadImage(from: detail.sprites.front_default)
-            }
-            
-        }
-    }
+//    private func getPokemonDetail(for url: String) {
+//        NetworkManager.shared.getPokemonDetail(from: url) { [weak self] detail, errorMessage in
+//            guard let self = self else { return }
+//            guard let detail = detail else {
+//                print(errorMessage!)
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                print(detail)
+//                self.spriteImageView.downloadImage(fromURL: detail.sprites.front_default)
+//            }
+//
+//        }
+//    }
     
     
     private func configure() {
@@ -70,7 +71,7 @@ class PokemonDetailController: UIViewController {
     private func layoutUI() {
         
         NSLayoutConstraint.activate([
-            spriteImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            spriteImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             spriteImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             spriteImageView.heightAnchor.constraint(equalToConstant: 300),
             spriteImageView.widthAnchor.constraint(equalToConstant: 300),

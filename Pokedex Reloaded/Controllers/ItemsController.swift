@@ -8,32 +8,13 @@
 
 import UIKit
 
-class ItemsController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating{
-    
-    
-    let searchController = UISearchController(searchResultsController: nil)
-
-    
+class ItemsController: PRControllerWithSearch {
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         configureSearchController()
     }
-    
-    
-    private func configureSearchController() {
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Items"
-        searchController.searchResultsUpdater = self
-    }
-    
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
-    
-    
+ 
 }

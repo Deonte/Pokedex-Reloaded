@@ -11,6 +11,7 @@ import UIKit
 class PokemonCell: UITableViewCell {
     
     static let reuseID = "PokemonCell"
+    
     let spriteImageView = PRSpriteImageView(frame: .zero)
     let nameLabel = PRTitleLabel(textAlignment: .left, fontSize: 24)
     let pokedexIDLabel = PRSubtitleLabel(fontSize: 20)
@@ -26,29 +27,12 @@ class PokemonCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     
-    func set(pokemon: String) {
-        
-        getPokemonDetail(for: pokemon)
-        
-    }
-    
-    
-    private func getPokemonDetail(for url: String) {
-        NetworkManager.shared.getPokemonDetail(for: url) { [weak self] detail, errorMessage in
-            guard let self = self else { return }
-            guard let detail = detail else {
-                print(errorMessage!)
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.nameLabel.text = detail.name.capitalized
-                self.spriteImageView.downloadImage(from: detail.sprites.front_default)
-                self.pokedexIDLabel.text = detail.id.format(pattern: "#%03d")
-            }
-            
-        }
+    func set(pokemon: PokemonDetail) {
+        self.nameLabel.text = pokemon.name.capitalized
+        self.spriteImageView.downloadImage(fromURL: pokemon.sprites.front_default)
+        self.pokedexIDLabel.text = pokemon.id.format(pattern: "#%03d")
     }
     
     

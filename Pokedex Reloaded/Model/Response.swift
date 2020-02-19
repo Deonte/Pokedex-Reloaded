@@ -9,13 +9,12 @@
 import Foundation
 
 
-struct PokemonResponse: Decodable {
-    var results: [Pokemon]
+struct Response: Decodable {
+    var results: [DataURL]
 }
 
 
-struct Pokemon: Decodable {
-    var name: String
+struct DataURL: Decodable {
     var url: String
 }
 
